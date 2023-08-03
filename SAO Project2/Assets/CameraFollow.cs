@@ -4,9 +4,12 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public float speedy = 0.125f;
-    void LateUpdate ()
+    public float SmoothSpeed = 0.125f;
+    public Vector3 offset;
+
+    void LateUpdate()
     {
-        transform.position = target.position;
+        transform.position = target.position + offset;
     }
 }
+
