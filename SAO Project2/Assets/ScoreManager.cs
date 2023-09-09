@@ -5,20 +5,25 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    
+
     public TMP_Text scoreText;
-    public float score;
-    // Start is called before the first frame update
-    void Start()
+
+    // Store the score value locally in this script
+    private float scoreValue = 0f;
+
+    private void Start()
     {
-        score = 0f;
-        scoreText.text = "Score: " + score.ToString();
+        // Initialize the scoreText in the Start method if it's not already assigned in the Inspector
+        if (scoreText == null)
+        {
+            Debug.LogError("Please assign the Score Text in the Inspector.");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        scoreText.text = "Score: " + score.ToString();
+        // Update the displayed score in the UI
+        scoreText.text = "Score: " + scoreValue.ToString();
     }
-    
+
 }
